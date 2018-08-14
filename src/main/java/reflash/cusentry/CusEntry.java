@@ -1,21 +1,30 @@
-package reflash.entry;
+package reflash.cusentry;
 
 // import java.util.Arrays;
 // import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
 
-
-public class Entry {
+@Entity
+@Table(name = "cusentry")
+public class CusEntry {
+    @Id
+    @Column(name = "cusentry_id")
     private String id;
+    @Column(name = "cusentry_key")
 	private String key;
+    @Column(name = "cusentry_value")
 	private String value;
 
-    public Entry() {
+    public CusEntry() {
 
     }
 
-	public Entry(String id, String key, String value){
+	public CusEntry(String id, String key, String value){
 		super();
 		this.id = id;
 		this.key = key;
