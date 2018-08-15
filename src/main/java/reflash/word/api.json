@@ -1,0 +1,7 @@
+{
+    "/words": ["GET", "POST"],
+    "/words/{id}": ["GET", "PUT", "DELETE"],
+    "/words/word/{word}": ["GET"],
+    "/words/meaning/{meaning}": ["GET"],
+    "/words/learning": ["GET"]
+}
