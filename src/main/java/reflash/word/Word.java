@@ -9,23 +9,13 @@ public class Word {
     @Id
     @GeneratedValue
     private Long id;
-    private String word;
-    private String meaning;
-    private Integer contRecog;
-    private Boolean isMastered;
+    private String word = "";
+    private String meaning = "";
+    private Integer contRecog = new Integer(0);
+    private Boolean isMastered = new Boolean(false);
 
     public Word() {
         super();
-        this.contRecog = new Integer(0);
-        this.isMastered = new Boolean(false);
-    }
-
-    public Word(String word, String meaning) {
-        super();
-        this.word = word;
-        this.meaning = meaning;
-        this.contRecog = new Integer(0);
-        this.isMastered = new Boolean(false);
     }
 
     public Long getId() {
@@ -62,5 +52,20 @@ public class Word {
 
     public void setIsMastered(Boolean isMastered) {
         this.isMastered = isMastered;
+    }
+
+    public void join(Word other) {
+        if (other.getWord() != null) {
+            this.setWord(other.getWord());
+        }
+        if (other.getMeaning() != null) {
+            this.setMeaning(other.getMeaning());
+        }
+        if (other.getContRecog() != null) {
+            this.setContRecog(other.getContRecog());
+        }
+        if (other.getIsMastered() != null) {
+            this.setIsMastered(other.getIsMastered());
+        }
     }
 }

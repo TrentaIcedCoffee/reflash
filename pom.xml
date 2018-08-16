@@ -55,7 +55,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>reflash.App</mainClass>
+                            <mainClass>reflash.Server</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
