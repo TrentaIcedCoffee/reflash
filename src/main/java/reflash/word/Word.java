@@ -9,13 +9,18 @@ public class Word {
     @Id
     @GeneratedValue
     private Long id;
-    private String word = "";
-    private String meaning = "";
-    private Integer contRecog = new Integer(0);
-    private Boolean isMastered = new Boolean(false);
+    private String word;
+    private String meaning;
+    private Integer contRecog;
+    private Boolean isMastered;
 
     public Word() {
         super();
+    }
+
+    public Word(final String word, final String meaning) {
+        this.word = word;
+        this.meaning = meaning;
     }
 
     public Long getId() {
