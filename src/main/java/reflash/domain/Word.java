@@ -1,29 +1,34 @@
-package reflash.word;
+package reflash.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.UUID;
 
-@Entity
-public class Word {
-	@Id
-	@GeneratedValue
-	private Long id;
+import com.datastax.driver.core.DataType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+
+@Table("words")
+public class Word implements Serializable {
+	@PrimaryKey
+	@CassandraType(type = DataType.Name.UUID)
+	private UUID id;
 	private String word;
 	private String meaning;
 	private Integer contRecog;
 	private Boolean isMastered;
 
-	public Word() {
-		super();
-	}
-
 	public Word(final String word, final String meaning) {
+		super();
+		this.id = UUID.randomUUID();
 		this.word = word;
 		this.meaning = meaning;
+		this.contRecog = new Integer(0);
+		this.isMastered = new Boolean(false);
 	}
 
-	public Long getId() {
+	public UUID getId() {
 		return this.id;
 	}
 
@@ -59,7 +64,7 @@ public class Word {
 		this.isMastered = isMastered;
 	}
 
-	public void join(Word other) {
+	public Word join(Word other) {
 		if (other.getWord() != null) {
 			this.setWord(other.getWord());
 		}
@@ -72,5 +77,6 @@ public class Word {
 		if (other.getIsMastered() != null) {
 			this.setIsMastered(other.getIsMastered());
 		}
+		return this;
 	}
 }
