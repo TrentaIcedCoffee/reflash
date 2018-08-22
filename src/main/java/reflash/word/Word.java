@@ -1,76 +1,76 @@
 package reflash.word;
 
-import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Word {
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String word;
-    private String meaning;
-    private Integer contRecog;
-    private Boolean isMastered;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String word;
+	private String meaning;
+	private Integer contRecog;
+	private Boolean isMastered;
 
-    public Word() {
-        super();
-    }
+	public Word() {
+		super();
+	}
 
-    public Word(final String word, final String meaning) {
-        this.word = word;
-        this.meaning = meaning;
-    }
+	public Word(final String word, final String meaning) {
+		this.word = word;
+		this.meaning = meaning;
+	}
 
-    public Long getId() {
-        return this.id;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public String getWord() {
-        return this.word;
-    }
+	public String getWord() {
+		return this.word;
+	}
 
-    public void setWord(String word) {
-        this.word = word;
-    }
+	public void setWord(String word) {
+		this.word = word;
+	}
 
-    public String getMeaning() {
-        return this.meaning;
-    }
+	public String getMeaning() {
+		return this.meaning;
+	}
 
-    public void setMeaning(String meaning) {
-        this.meaning = meaning;
-    }
+	public void setMeaning(String meaning) {
+		this.meaning = meaning;
+	}
 
-    public Integer getContRecog() {
-        return this.contRecog;
-    }
+	public Integer getContRecog() {
+		return this.contRecog;
+	}
 
-    public void setContRecog(Integer contRecog) {
-        this.contRecog = contRecog;
-    }
+	public void setContRecog(Integer contRecog) {
+		this.contRecog = contRecog;
+	}
 
-    public Boolean getIsMastered() {
-        return this.isMastered;
-    }
+	public Boolean getIsMastered() {
+		return this.isMastered;
+	}
 
-    public void setIsMastered(Boolean isMastered) {
-        this.isMastered = isMastered;
-    }
+	public void setIsMastered(Boolean isMastered) {
+		this.isMastered = isMastered;
+	}
 
-    public void join(Word other) {
-        if (other.getWord() != null) {
-            this.setWord(other.getWord());
-        }
-        if (other.getMeaning() != null) {
-            this.setMeaning(other.getMeaning());
-        }
-        if (other.getContRecog() != null) {
-            this.setContRecog(other.getContRecog());
-        }
-        if (other.getIsMastered() != null) {
-            this.setIsMastered(other.getIsMastered());
-        }
-    }
+	public void join(Word other) {
+		if (other.getWord() != null) {
+			this.setWord(other.getWord());
+		}
+		if (other.getMeaning() != null) {
+			this.setMeaning(other.getMeaning());
+		}
+		if (other.getContRecog() != null) {
+			this.setContRecog(other.getContRecog());
+		}
+		if (other.getIsMastered() != null) {
+			this.setIsMastered(other.getIsMastered());
+		}
+	}
 }

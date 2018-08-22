@@ -1,19 +1,20 @@
 package reflash.entry;
 
 import java.lang.Long;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Entry {
-    @Id
-    @GeneratedValue
-    private Long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String key;
 	private String val;
 
-    public Entry() {}
+	public Entry() {
+	}
 
 	public Entry(String key, String val) {
 		super();
