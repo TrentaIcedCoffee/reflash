@@ -23,6 +23,7 @@ ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 COPY . /app
 WORKDIR /app
 RUN mvn install && mvn package spring-boot:repackage
+RUN docker run -p 9042:9042 cassandra
 
 EXPOSE 8000
 
