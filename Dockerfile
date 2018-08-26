@@ -1,12 +1,14 @@
 FROM openjdk:8-jdk
 
-RUN echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | tee -a /etc/apt/sources.list.d/cassandra.sources.list && \
-    curl https://www.apache.org/dist/cassandra/KEYS | apt-key add - && \
-    apt-get update && \
-    apt-get -y install cassandra && \
-    service cassandra start
+# Uncomment if for package a single node
 
-EXPOSE 9042
+# RUN echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | tee -a /etc/apt/sources.list.d/cassandra.sources.list && \
+#     curl https://www.apache.org/dist/cassandra/KEYS | apt-key add - && \
+#     apt-get update && \
+#     apt-get -y install cassandra && \
+#     service cassandra start
+
+# EXPOSE 9042
 
 ARG MAVEN_VERSION=3.5.4
 ARG USER_HOME_DIR="/root"
